@@ -119,7 +119,3 @@ curl -X DELETE localhost:8080/api/products/1
 ## Time spent
 
 7h 34m
-
-## AI assistance
-
-Built with help from Claude Code (backend, tests, and the first version of the frontend).
