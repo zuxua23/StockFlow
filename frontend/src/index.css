@@ -1,0 +1,94 @@
+:root{
+  --bg:#f1f4f9;
+  --panel:#ffffff;
+  --border:#d9e0ec;
+  --text:#1b2433;
+  --muted:#6b778c;
+  --primary:#2b59d9;
+  --primary-dark:#1f45b0;
+  --danger:#d64545;
+  --danger-bg:#fdecec;
+  --success:#1f8a4c;
+  --success-bg:#e2f6ea;
+}
+
+*{box-sizing:border-box}
+
+body{margin:0;font-family:system-ui,sans-serif;font-size:14px;background:var(--bg);color:var(--text)}
+
+.app{max-width:1100px;margin:0 auto;padding:0 16px 32px}
+
+header{display:flex;justify-content:space-between;align-items:center;background:var(--primary);color:#fff;margin:0 -16px 16px;padding:12px 16px}
+header h1{margin:0;font-size:20px}
+nav{display:flex;gap:4px}
+nav button{background:transparent;color:#dbe4ff;border:0;padding:8px 16px;border-radius:6px}
+nav button:hover{background:rgba(255,255,255,.15)}
+nav button.active{background:#fff;color:var(--primary);font-weight:700}
+
+button{font:inherit;cursor:pointer;background:var(--primary);color:#fff;border:0;border-radius:6px;padding:6px 12px}
+button:hover:not(:disabled){background:var(--primary-dark)}
+button:disabled{opacity:.5;cursor:not-allowed}
+button[type=button]{background:#e8edf6;color:var(--text)}
+button[type=button]:hover:not(:disabled){background:#d8e0ef}
+
+input,select{font:inherit;padding:6px 8px;border:1px solid var(--border);border-radius:6px;background:#fff;color:var(--text)}
+input:focus,select:focus{outline:2px solid var(--primary);outline-offset:-1px}
+
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:16px}
+.card{background:var(--panel);border:1px solid var(--border);border-top:4px solid var(--primary);border-radius:8px;padding:12px}
+.card:nth-child(2){border-top-color:var(--success)}
+.card:nth-child(3){border-top-color:#8a5cd6}
+.card:nth-child(4){border-top-color:var(--danger)}
+.card .label{font-size:12px;color:var(--muted)}
+.card .value{font-size:22px;font-weight:700;margin-top:4px}
+
+.toolbar{display:flex;gap:8px;align-items:center;margin:12px 0}
+.toolbar input{flex:1;max-width:320px}
+.toolbar button:last-of-type:not(:disabled){margin-left:auto}
+
+table{width:100%;border-collapse:collapse;background:var(--panel);border:1px solid var(--border);border-radius:8px;overflow:hidden}
+th{background:#e8edf6;color:var(--muted);font-size:12px;text-transform:uppercase;text-align:left;padding:10px}
+td{padding:10px;border-top:1px solid var(--border)}
+tbody tr:hover{background:#f7f9fd}
+.num{text-align:right}
+.low{color:var(--danger);font-weight:700}
+.actions{white-space:nowrap}
+.actions button{margin-right:4px;padding:4px 10px}
+
+.badge{display:inline-block;padding:2px 10px;border-radius:10px;font-size:12px;font-weight:600}
+.badge.on{background:var(--success-bg);color:var(--success)}
+.badge.off{background:#e9ecf1;color:var(--muted)}
+
+.panel{background:var(--panel);border:1px solid var(--border);border-radius:8px;padding:16px;margin-bottom:16px}
+.panel h3{margin:0 0 12px}
+
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start}
+
+label{display:block;margin:10px 0;font-size:13px;color:var(--muted)}
+label input,label select{display:block;width:100%;margin-top:4px}
+label.check{display:flex;align-items:center;gap:8px;color:var(--text)}
+label.check input{width:auto;margin:0}
+
+.row{display:flex;gap:8px;align-items:center;margin:8px 0}
+.row input:first-child{flex:1}
+.qty{width:80px}
+.bad input{border-color:var(--danger);background:var(--danger-bg)}
+
+.error{color:var(--danger);background:var(--danger-bg);border-radius:6px;padding:8px 12px;margin:8px 0}
+.ok{color:var(--success);background:var(--success-bg);border-radius:6px;padding:8px 12px;margin:8px 0}
+
+.orders{list-style:none;margin:0;padding:0}
+.orders li{margin-bottom:6px}
+.orders button{width:100%;text-align:left;background:#f1f4f9;color:var(--text);border:1px solid var(--border)}
+.orders button:hover:not(:disabled){background:#e3e9f5}
+
+.backdrop{position:fixed;inset:0;background:rgba(15,23,42,.5);display:flex;align-items:center;justify-content:center;padding:16px}
+.modal{background:var(--panel);border-radius:10px;padding:20px;width:100%;max-width:380px}
+.modal h3{margin:0 0 8px}
+.modal .row{justify-content:flex-end;margin-top:16px}
+
+@media (max-width:800px){
+  .cards{grid-template-columns:repeat(2,1fr)}
+  .two-col{grid-template-columns:1fr}
+  table{display:block;overflow-x:auto}
+}
